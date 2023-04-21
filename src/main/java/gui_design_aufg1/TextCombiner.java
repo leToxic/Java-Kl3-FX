@@ -1,4 +1,4 @@
-package gui_design;
+package gui_design_aufg1;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +21,7 @@ public class TextCombiner extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui_design/TextCombiner.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui_design_aufg1/TextCombiner.fxml"));
 
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);

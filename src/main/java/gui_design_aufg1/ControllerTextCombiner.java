@@ -1,4 +1,4 @@
-package gui_design;
+package gui_design_aufg1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,23 +37,22 @@ public class ControllerTextCombiner implements Initializable {
 
     @FXML
     void handleClearAction(ActionEvent event) {
-        this.text1.setText("");
-        this.text2.setText("");
-        this.sendText.setText("");
-
-        this.case1.setSelected(true);
-        this.case2.setSelected(false);
+        text1.setText("");
+        text2.setText("");
+        sendText.setText("");
+        case1.setSelected(true);
+        case2.setSelected(false);
     }
 
     @FXML
     void handleSendTextAction(ActionEvent event) {
         this.sendText.setText("");
-        if(this.text1.getText().isBlank() || this.text2.getText().isBlank()) {
-            this.sendText.setText("Einer der beiden Werte nicht gesetzt. Bitte machen!");
+        if (text1.getText().isBlank() || text2.getText().isBlank()) {
+            sendText.setText("Einer der beiden Werte nicht gesetzt. Bitte machen!");
         } else if (this.case1.isSelected()) {
-            this.sendText.setText(this.text1.getText() + " " + this.text2.getText());
+            sendText.setText(text1.getText() + " " + text2.getText());
         } else if (this.case2.isSelected()) {
-            this.sendText.setText(this.text2.getText() + " " + this.text1.getText());
+            sendText.setText(text2.getText() + " " + text1.getText());
         }
 
     }

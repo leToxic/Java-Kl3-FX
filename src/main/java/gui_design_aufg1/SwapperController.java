@@ -1,4 +1,4 @@
-package gui_design;
+package gui_design_aufg1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
