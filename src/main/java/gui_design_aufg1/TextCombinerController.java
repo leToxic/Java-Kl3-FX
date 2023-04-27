@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  *
  * @author Plasek Sebastian
  */
-public class ControllerTextCombiner implements Initializable {
+public class TextCombinerController implements Initializable {
 
     @FXML
     private RadioButton case1;

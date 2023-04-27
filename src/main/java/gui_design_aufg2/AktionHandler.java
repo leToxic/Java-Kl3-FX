@@ -43,7 +43,7 @@ public class AktionHandler implements Initializable {
                 text.setText(text.getText().toUpperCase());
             }
         }
-
+        deleteIt.setSelected(true);
     }
 
     @Override

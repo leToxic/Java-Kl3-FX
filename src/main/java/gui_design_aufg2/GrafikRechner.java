@@ -9,11 +9,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Created: 20.04.2023 at 12:58
+ * Created: 27.04.2023 at 11:37
  *
  * @author Plasek Sebastian
  */
-public class Aktion extends Application {
+public class GrafikRechner extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -21,9 +21,9 @@ public class Aktion extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui_design_aufg2/Aktion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui_design_aufg2/GrafikRechner.fxml"));
         primaryStage.setScene(new Scene(root));
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.setTitle("Aktion");
         primaryStage.show();
     }
