@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#rotate" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mouseevents.HelloHTLController">
+   <children>
+      <StackPane fx:id="pane" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="160.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 50; -fx-arc-height: 50;" width="305.0">
+               <effect>
+                  <DropShadow height="65.45" radius="35.735" width="79.49">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Rectangle>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hello HTL">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <effect>
+                  <Reflection fraction="0.63" topOffset="-7.0" topOpacity="1.0" />
+               </effect>
+            </Text>
+         </children>
+      </StackPane>
+   </children>
+</StackPane>

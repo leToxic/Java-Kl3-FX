@@ -7,4 +7,7 @@ module com.example.javakl3fx {
 
     opens gui_design_aufg2 to javafx.fxml;
     exports gui_design_aufg2;
+
+    opens mouseevents to javafx.fxml;
+    exports mouseevents;
 }
