@@ -10,4 +10,13 @@ module com.example.javakl3fx {
 
     opens mouseevents to javafx.fxml;
     exports mouseevents;
+
+    opens listViews.listDemo to javafx.fxml;
+    exports listViews.listDemo;
+
+    opens listViews.numberList to javafx.fxml;
+    exports listViews.numberList;
+
+    opens listViews.logger to javafx.fxml;
+    exports listViews.logger;
 }

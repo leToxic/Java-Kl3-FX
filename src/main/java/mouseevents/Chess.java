@@ -2,6 +2,7 @@ package mouseevents;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -43,7 +44,7 @@ public class Chess extends Application {
 
         GridPane gp = new GridPane();
         boolean nextGrey;
-        int prefSize = 800;
+        int prefSize = 200;
         gp.setPrefSize(prefSize, prefSize);
 
         for (int x = 0; x < num; x++) {
@@ -59,9 +60,13 @@ public class Chess extends Application {
                     r.setFill(Color.WHITE);
                     r.setUserData(Color.WHITE);
                 }
-
                 r.strokeProperty().bind(r.fillProperty());
                 r.setOnMouseClicked(this::animation);
+                r.setOnMouseEntered(mouseEvent -> {
+                    if (mouseEvent.isAltDown()) {
+                        this.animation(mouseEvent);
+                    }
+                });
                 gp.add(r, x, y);
             }
         }
