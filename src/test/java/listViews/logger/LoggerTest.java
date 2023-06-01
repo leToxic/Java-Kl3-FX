@@ -1,9 +1,12 @@
+package listViews.logger;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
-import logger.LogEntry;
+import listViews.FxTest;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -61,7 +64,7 @@ public class LoggerTest extends FxTest {
 
     @Test
     void initialState_listViewEmpty() {
-        assertThat(listView.getItems()).isEmpty();
+        Assertions.assertThat(listView.getItems()).isEmpty();
     }
 
     @Test
@@ -104,7 +107,7 @@ public class LoggerTest extends FxTest {
 
         robot.interact(rbOptions[0]::fire);
 
-        assertThat(listView.getItems()).hasSize(1);
+        Assertions.assertThat(listView.getItems()).hasSize(1);
     }
 
     @Test

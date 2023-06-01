@@ -13,12 +13,16 @@ public class LogEntry {
     private final String desc;
     private final LocalDateTime timestamp;
 
-    public LogEntry(String desc) {
+    private final String ending;
+
+    public LogEntry(String desc, String ending) {
         this.desc = desc;
         this.timestamp = LocalDateTime.now();
+        this.ending = ending;
     }
 
-    public String makeText() {
-        return timestamp.format(formatter) + ": " + desc;
+    @Override
+    public String toString() {
+        return timestamp.format(formatter) + ": " + desc + " " + ending;
     }
 }

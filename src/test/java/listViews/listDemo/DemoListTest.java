@@ -1,9 +1,12 @@
+package listViews.listDemo;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+import listViews.FxTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -20,7 +23,7 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
 public class DemoListTest extends FxTest {
-    public static final String PATH_TO_FXML = "/layout/demoList.fxml";
+    public static final String PATH_TO_FXML = "/listViews/listDemo/demoList.fxml";
     private TextField textField;
     private Button btnAdd;
     private Button btnClear;

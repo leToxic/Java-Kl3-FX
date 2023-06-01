@@ -12,10 +12,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Created: 25.05.2023 at 13:02
@@ -44,16 +41,19 @@ public class NumberListController implements Initializable {
     }
 
     private void makeDirection(ListView<Integer> from, ListView<Integer> to) {
-        ArrayList<Integer> pass = new ArrayList<>();
         if (single.isSelected()) {
-            pass.add(from.getSelectionModel().getSelectedItem());
+            Integer item = from.getSelectionModel().getSelectedItem();
+            if (item != null) {
+                int newI = (Collections.binarySearch(to.getItems(), item) + 1) * -1;
+                to.getItems().add(newI, item);
+                from.getItems().remove(item);
+            }
         } else {
-            pass.addAll(from.getSelectionModel().getSelectedItems());
+
+            to.getItems().addAll(from.getSelectionModel().getSelectedItems());
+            from.getItems().removeAll(from.getSelectionModel().getSelectedItems());
+            Collections.sort(to.getItems());
         }
-        from.getItems().removeAll(pass);
-        to.getItems().addAll(pass);
-        Collections.sort(from.getItems());
-        Collections.sort(to.getItems());
     }
 
     @FXML
@@ -68,6 +68,7 @@ public class NumberListController implements Initializable {
         }
 
         single.pressedProperty().addListener((observableValue, aBoolean, t1) -> {
+
             this.left.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
             this.right.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 

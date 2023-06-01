@@ -1,3 +1,5 @@
+package listViews;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -16,18 +18,18 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-abstract class FxTest {
+public abstract class FxTest {
     private static final int ERROR_FXML_NOT_FOUND = 1;
     private static final int ERROR_ID_NOT_FOUND = 2;
     private Parent root;
 
     @BeforeAll
-    private static void setFailOnError() {
+    static void setFailOnError() {
         Thread.setDefaultUncaughtExceptionHandler((t, error) -> fail(error));
     }
 
     @AfterEach
-    private void closeDialogs(FxRobot robot) {
+    void closeDialogs(FxRobot robot) {
         List<Window> windows = robot.listWindows();
         if (windows.size() > 1) {
             for (int i = 1; i < windows.size(); i++) {
@@ -46,7 +48,7 @@ abstract class FxTest {
         robot.interact(() -> dialogPane.getButtonTypes().add(ButtonType.CANCEL));
     }
 
-    void startApplication(Stage primaryStage, String pathToFxml) throws IOException {
+    protected void startApplication(Stage primaryStage, String pathToFxml) throws IOException {
         URL fxml = getClass().getResource(pathToFxml);
         assertFxmlExists(fxml, pathToFxml);
         root = FXMLLoader.load(fxml);
@@ -54,7 +56,7 @@ abstract class FxTest {
         primaryStage.show();
     }
 
-    private void assertFxmlExists(URL fxml, String pathToFxml) {
+    void assertFxmlExists(URL fxml, String pathToFxml) {
         if (fxml == null) {
             System.err.println("Fxml not found: " + pathToFxml);
             System.exit(ERROR_FXML_NOT_FOUND);
@@ -62,7 +64,7 @@ abstract class FxTest {
     }
 
     @SuppressWarnings("unchecked")
-    <T> T getById(String id) {
+    protected <T> T getById(String id) {
         Node requested = root.lookup('#' + id);
         if (requested == null) {
             System.err.println("FxId not found: " + id);
