@@ -19,4 +19,7 @@ module com.example.javakl3fx {
 
     opens listViews.logger to javafx.fxml;
     exports listViews.logger;
+
+    opens textCombiner_Rechteck to javafx.fxml;
+    exports textCombiner_Rechteck;
 }
