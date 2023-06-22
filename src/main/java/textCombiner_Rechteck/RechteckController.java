@@ -39,7 +39,7 @@ public class RechteckController implements Initializable {
         hoehe.setValue(25);
         breite.setValue(25);
 
-        StringBinding stringBinding = new StringBinding() {
+        flaeche.textProperty().bind(new StringBinding() {
 
             {
                 super.bind(rechteck.widthProperty(), rechteck.heightProperty());
@@ -49,13 +49,10 @@ public class RechteckController implements Initializable {
             protected String computeValue() {
                 return String.format("%d E²", Math.round(rechteck.getWidth() * rechteck.getHeight()));
             }
-        };
-        flaeche.textProperty().bind(stringBinding);
+        });
 
         color.getItems().addAll(Color.RED, Color.BLACK, Color.BLUE, Color.OLIVE, Color.web("#9cce2b"));
         color.getSelectionModel().select(0);
         this.rechteck.fillProperty().bind(color.valueProperty());
-
-
     }
 }
